@@ -49,9 +49,9 @@ export default class MenuRutas extends Component {
                             <li className="nav-item">
                                 <NavLink
                                     className="nav-link"
-                                    to="/apuestas"
+                                    to="/crearJugador"
                                 >
-                                    Apuestas
+                                    Crear Jugador
                                 </NavLink>
                             </li>
                             <li className="nav-item dropdown">

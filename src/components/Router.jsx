@@ -3,6 +3,7 @@ import { BrowserRouter,Routes,Route, useParams } from "react-router-dom";
 import MenuRutas from './MenuRutas';
 import Jugadores from './Jugadores';
 import Jugador from './Jugador';
+import CrearJugador from './CrearJugador';
 export default class Router extends Component {
   render() {
     function ElementEquipoJugadores () {
@@ -19,6 +20,7 @@ export default class Router extends Component {
       <Routes>
         <Route path='/equipo/:idEquipo' element={<ElementEquipoJugadores/>}/>
         <Route path='/jugador/:idJugador' element={<ElementJugador/>}/>
+        <Route path='/crearJugador' element={<CrearJugador/>}/>
       </Routes>
       </BrowserRouter>
     )

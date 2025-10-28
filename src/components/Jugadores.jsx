@@ -15,6 +15,13 @@ export default class Jugadores extends Component {
             })
         })
     }
+    borrarJugador = (id) => {
+        let request = "api/Jugadores/" + id
+        axios.delete(this.url + request).then(()=>{
+            alert("Jugado Borrado")
+            this.loadJugadores()
+        })
+    }
     componentDidMount = () => {
         this.loadJugadores()
     }
@@ -31,17 +38,18 @@ export default class Jugadores extends Component {
                 <tr>
                     <th>Nombre</th>
                     <th>Imagen</th>
-                    <th>Detalle</th>
+                    <th colSpan="3"></th>
                 </tr>
             </thead>
             <tbody>
                 {
                     this.state.jugadores.map((jugador, index) => {
                         return(
-                            <tr>
+                            <tr key={index}>
                         <td>{jugador.nombre}</td>
                         <td><img src={jugador.imagen} alt={jugador.nombre}/></td>
                         <td><NavLink to={"/jugador/" + jugador.idJugador} className='btn btn-primary'>Detalles</NavLink></td>
+                        <td><button onClick={() => this.borrarJugador(jugador.idJugador)} className='btn btn-danger'>Borrar</button></td>
                         </tr>
                         )
                     })
